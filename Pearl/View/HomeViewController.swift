@@ -9,7 +9,7 @@ import UIKit
 
 class HomeView: UIViewController {
     private let service = AuthService()
-    private var viewBuilder = ViewBuilder()
+    private let viewBuilder = ViewBuilder()
     
     lazy var infoLabel = viewBuilder.createLabel(
         frame: CGRect(x: 30, y: 320, width: view.frame.width - 60, height: 50),
@@ -23,8 +23,12 @@ class HomeView: UIViewController {
         action: exitAction
     )
     
-    lazy var exitAction: UIAction = UIAction { _ in
-        self.service.signOut()
+    lazy var exitAction: UIAction = UIAction { [weak self] _ in
+        guard let self = self else { return }
+        
+        viewBuilder.animateButton(exitButton)
+        service.signOut()
+        
         NotificationCenter.default.post(
             name: Notification.Name(rawValue: "routeVC"),
             object: nil,

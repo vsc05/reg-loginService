@@ -51,6 +51,9 @@ class LoginView: UIViewController {
     
     lazy var loginAction: UIAction = UIAction { [weak self] _ in
         guard let self = self else { return }
+        
+        viewBuilder.animateButton(loginButton)
+        
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
 

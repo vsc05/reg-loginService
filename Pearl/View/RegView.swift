@@ -47,7 +47,9 @@ class RegView: UIViewController {
 
     lazy var registerAction: UIAction = UIAction { [weak self] _ in
         guard let self = self else { return }
-
+        
+        viewBuilder.animateButton(registerButton)
+        
         let email = emailTextField.text
         let password = passwordTextField.text
         let name = nameTextField.text
