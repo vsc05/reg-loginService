@@ -38,9 +38,15 @@ class HomeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        infoLabel.alpha = 0
+        
         view.backgroundColor = .white
         view.addSubview(exitButton)
         view.addSubview(infoLabel)
+        
+        UIView.animate(withDuration: 2) {
+            self.infoLabel.alpha = 1
+        }
     }
 
 
