@@ -45,5 +45,15 @@ class ViewBuilder {
         btn.layer.cornerRadius = 8
         return btn
     }
+    
+    func animateButton(_ button: UIButton){
+        UIView.animate(withDuration: 0.1, animations: {
+            button.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+        }) { _ in
+            UIView.animate(withDuration: 0.1, animations: {
+                button.transform = .identity
+            })
+        }
+    }
 }
 
