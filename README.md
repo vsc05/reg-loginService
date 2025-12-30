@@ -17,20 +17,11 @@
 
 ---
 
-## 📸 Скриншоты
-<p align="center">
-  <img src="https://via.placeholder.com/250x500?text=Login+Screen" width="200" alt="Login" />
-  <img src="https://via.placeholder.com/250x500?text=Registration+Screen" width="200" alt="Register" />
-</p>
-<i>(Совет: замени эти ссылки на реальные скриншоты твоего приложения)</i>
-
----
-
 ## 🛠 Технологии
 * **Language:** Swift
 * **UI Framework:** SwiftUI
 * **Backend:** Firebase Auth
-* **Architecture:** MVVM (Model-View-ViewModel)
+* **Architecture:** MVC (Model-View-Controller)
 
 ---
 
