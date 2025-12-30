@@ -47,6 +47,8 @@
   * Если используешь Swift Package Manager (SPM), Xcode сам подтянет Firebase.
   * Если CocoaPods — пропиши ```pod install.```
 
+---
+
 👨‍💻 Автор
 * vsc05
 * Telegram: @vsc05
