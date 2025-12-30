@@ -34,21 +34,21 @@
    git clone https://github.com/vsc05/reg-loginService.git
    ```
 2. **Настрой Firebase:**
-  Перейди в Firebase Console.
-  Создай новый проект iOS.
-  Загрузи файл ```GoogleService-Info.plist.```
-  Добавь этот файл в корень проекта через Xcode.
+  * Перейди в Firebase Console.
+  * Создай новый проект iOS.
+  * Загрузи файл ```GoogleService-Info.plist.```
+  * Добавь этот файл в корень проекта через Xcode.
 
 3. **Включи Auth:**
-  В консоли Firebase перейди в раздел **Authentication -> Sign-in method.**
-  Включи провайдер **Email/Password.**
+  * В консоли Firebase перейди в раздел **Authentication -> Sign-in method.**
+  * Включи провайдер **Email/Password.**
 
 4. **Установи зависимости:**
-  Если используешь Swift Package Manager (SPM), Xcode сам подтянет Firebase.
-  Если CocoaPods — пропиши ```pod install.```
+  * Если используешь Swift Package Manager (SPM), Xcode сам подтянет Firebase.
+  * Если CocoaPods — пропиши ```pod install.```
 
 👨‍💻 Автор
-vsc05
-Telegram: @vsc05
-Email: gasa.abdullaev.99@bk.ru
+* vsc05
+* Telegram: @vsc05
+* Email: gasa.abdullaev.99@bk.ru
 
