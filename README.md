@@ -31,7 +31,7 @@
 
 1. **Клонируй репозиторий:**
    ```bash
-   git clone [https://github.com/vsc05/reg-loginService.git](https://github.com/vsc05/reg-loginService.git)
+   git clone https://github.com/vsc05/reg-loginService.git
    ```
 2. **Настрой Firebase:**
   Перейди в Firebase Console.
