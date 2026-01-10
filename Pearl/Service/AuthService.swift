@@ -37,7 +37,7 @@ class AuthService {
         Firestore.firestore()
             .collection("users")
             .document(userId)
-            .setData(["name": user.name ?? "", "email": user.email]) { err in
+            .setData(["name": user.name ?? "", "email": user.email, "isVerified": false]) { err in
                 guard err == nil else {
                     completion(false)
                     return
@@ -47,27 +47,36 @@ class AuthService {
         
     }
     
-    func signIn(user: UserData, completion: @escaping (Result<Bool, Error>) -> Void){
+    func signIn(user: UserData, completion: @escaping (Result<Bool, Error>) -> Void) {
         Auth.auth().signIn(withEmail: user.email, password: user.password) { [weak self] result, err in
             guard let self = self else { return }
-            guard err == nil else {
-                print(err!)
-                completion(.failure(err!))
+            
+            if let err = err {
+                completion(.failure(err))
                 return
             }
             
-            guard let user = result?.user else {
+            guard let userAuth = result?.user else {
                 completion(.failure(SignInError.UnvailbleUser))
                 return
             }
             
-            if !user.isEmailVerified {
+            // Проверяем, подтверждена ли почта в системе Auth
+            if !userAuth.isEmailVerified {
+                self.signOut()
                 completion(.failure(SignInError.notVerified))
-                signOut()
                 return
             }
             
-            completion(.success(true))
+            // Если почта подтверждена, обновляем флаг в Firestore
+            let userRef = Firestore.firestore().collection("users").document(userAuth.uid)
+            userRef.updateData(["isVerified": true]) { error in
+                if let error = error {
+                    print("Не удалось обновить статус верификации: \(error.localizedDescription)")
+                }
+                // В любом случае завершаем вход успешно
+                completion(.success(true))
+            }
         }
     }
     

@@ -13,7 +13,7 @@ class HomeView: UIViewController {
     
     lazy var infoLabel = viewBuilder.createLabel(
         frame: CGRect(x: 30, y: 320, width: view.frame.width - 60, height: 50),
-        text: "Вы успешно вошли в аккаунт",
+        text: "Вы молодец",
         size: 22
     )
     
